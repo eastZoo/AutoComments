@@ -62,64 +62,29 @@ element = driver.find_element_by_id("cafe_main") #iframe 태그 엘리먼트 찾
 driver.switch_to.frame(element) #프레임 이동
 time.sleep(3)
 
-isegye_board = driver.find_element_by_xpath('//*[@id="main-area"]/ul[1]/li[1]')
+isegye_board = driver.find_element_by_xpath('//*[@id="main-area"]/ul[1]/li[3]')
 isegye_board.click()
 
-# li = isegye_board.find_elements_by_tag_name('li')
-# aTag = li[0].find_element_by_tag_name('a')
-# print(aTag)
-# href = aTag.get_attribute('href')
-# href.click()
+for i in range(10):
+    time.sleep(2)
+    #스티커 버튼
+    icon_button = driver.find_element_by_class_name('button_sticker') 
+    icon_button.click()
 
-# &search.menuid = : 게시판 번호
-# &search.page = : 데이터 수집 할 페이지 번호
-# &userDisplay = 50 : 한 페이지에 보여질 게시글 수
+    # 댓글 스티커 선택 버튼
+    time.sleep(1)
+    sticker = driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div[5]/div[2]/div[2]/div[1]/div/div/div/div/ul/li[1]/div/ul/li[4]') 
+    sticker.click()
 
-# clubid = 카페 클럽 ID 번호 입력
-# menuid = 메뉴 ID 번호 입력
-# pageNum = 1
-# userDisplay = 50
+    # 댓글 확인버튼
+    time.sleep(1)
+    confirm = driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div[5]/div[2]/div[2]/div[2]/a') 
+    confirm.click()
 
-# driver.get(
-#     baseurl + 'ArticleList.nhn?search.clubid=' + str(clubid) + '&search.menuid=' + str(menuid) + '&search.page=' + str(
-#         pageNum) + '&userDisplay=' + str(userDisplay))
-        
-# # iframe으로 접근
-# driver.switch_to.frame('cafe_main') 
-
-
-# soup = bs(driver.page_source, 'html.parser')
-
-# print(str(soup))
-
-# soup = soup.find_all(class_='article-board m-tcol-c')[1]
-
-# # 네이버 카페 구조 확인후 게시글 내용만 가저오기
-
-# # datas = soup.find_all('td', class_ = 'td_article')
-
-# datas = soup.find_all(class_='td_article')
-# dates = soup.find_all(class_='td_date')
-
-
-
-# for data in datas:
-#     article_title = data.find(class_='article')
-#     link = article_title.get('href')
-#     article_title = article_title.get_text().strip()
-
-#     print(article_title)
-#     print(baseurl + link)
-
-# 	# 인코딩은 utf-8이 좋아 보임
-    
-#     f = open('craw.csv', 'a+', newline='',encoding='utf-8') 
-   
-#     wr = csv.writer(f)
-#     wr.writerow([article_title, baseurl + link])
-#     f.close()
-
-# print('종료')
-
-
+    time.sleep(2)
+    # 다음글
+    next = driver.find_element_by_xpath('//*[@id="app"]/div/div/div[1]/div[2]/a[2]') 
+    next.click()
+    # //*[@id="app"]/div/div/div[1]/div[2]/a[2] 다음글
+    # //*[@id="app"]/div/div/div[1]/div[2]/a[1] 이전글
 # driver.close()
