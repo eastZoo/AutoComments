@@ -43,7 +43,7 @@ login_btn = driver.find_element_by_id('log.login')
 login_btn.click() 
 
 btn_cancel = driver.find_element_by_id('new.dontsave') 
-btn_cancel.click() 
+btn_cancel.click()
 
 time.sleep(2)
 

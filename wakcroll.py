@@ -6,6 +6,7 @@ import pyperclip
 
 #드라이버 로딩 
 driver = webdriver.Chrome('./chromedriver.exe') 
+driver.maximize_window() # For maximizing window
 
 ##사용할 변수 선언 
 ##네이버 로그인 주소 
@@ -51,6 +52,24 @@ time.sleep(2)
 # 내가 검색하려는 카페 주소 입력하기
 baseurl = 'https://cafe.naver.com/steamindiegame/'
 driver.get(baseurl)
+
+# 이세돌 팬아트 게시판 클릭
+ise_pan = driver.find_element_by_id('menuLink344') 
+ise_pan.click()
+
+time.sleep(3)
+element = driver.find_element_by_id("cafe_main") #iframe 태그 엘리먼트 찾기
+driver.switch_to.frame(element) #프레임 이동
+time.sleep(3)
+
+isegye_board = driver.find_element_by_xpath('//*[@id="main-area"]/ul[1]/li[1]')
+isegye_board.click()
+
+# li = isegye_board.find_elements_by_tag_name('li')
+# aTag = li[0].find_element_by_tag_name('a')
+# print(aTag)
+# href = aTag.get_attribute('href')
+# href.click()
 
 # &search.menuid = : 게시판 번호
 # &search.page = : 데이터 수집 할 페이지 번호
