@@ -44,8 +44,8 @@ time.sleep(1)
 login_btn = driver.find_element_by_id('log.login') 
 login_btn.click() 
 
-btn_cancel = driver.find_element_by_id('new.dontsave') 
-btn_cancel.click() 
+# btn_cancel = driver.find_element_by_id('new.dontsave') 
+# btn_cancel.click() 
 
 time.sleep(2)
 
@@ -62,12 +62,12 @@ element = driver.find_element_by_id("cafe_main") #iframe 태그 엘리먼트 찾
 driver.switch_to.frame(element) #프레임 이동
 time.sleep(3)
 
-isegye_board = driver.find_element_by_xpath('//*[@id="main-area"]/ul[1]/li[2]')
+isegye_board = driver.find_element_by_xpath('//*[@id="main-area"]/ul[1]/li[3]')
 isegye_board.click()
 
 count = 1
 
-for i in range(10):
+for i in range(40):
     time.sleep(2)
     #스티커 버튼
     icon_button = driver.find_element_by_class_name('button_sticker') 
@@ -95,7 +95,7 @@ for i in range(10):
     confirm = driver.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[2]/div[4]/div[2]/div[2]/div[2]/a') 
     confirm.click()
 
-    time.sleep(20)
+    time.sleep(3)
     # 다음글
     next = driver.find_element_by_xpath('//*[@id="app"]/div/div/div[1]/div[2]/a[2]') 
     next.click()
